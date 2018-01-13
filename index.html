@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="form.css">
+    <title>Document</title>
+</head>
+<body>
+
+    
+   
+    <form id = 'myForm' method="post" action = './submit.html'>
+        <fieldset>
+            <legend>Sign Up:</legend>
+        Email:
+        <input type="text" id = 'email' name="email" placeholder="ex. JohnDoe@gmail.com" onfocus="checkEmail()" onblur="checkEmail()" required>
+        <br>
+        Email Confirmation:
+        <input type="text" id = 'emailC' name="emailC" placeholder="ex. JohnDoe@gmail.com" required>
+        Country:
+        <input type="text" name="Country" placeholder="ex. United States" required>
+        <br>
+        Zip Code:
+        <input type="text" name="Zip" placeholder="ex. 91210" required>
+        Password:
+        <input type="text" id = 'password' name="password" placeholder="" required onfocus="checkPassword()" onblur="checkPassword()">
+        <br>
+        Password Confirmation:
+        <input type="text" id = 'passwordC' name="passwordC" placeholder="" required>
+        <br><br>
+        <input type="submit" value="submit" onClick="submitMe()">
+
+
+        <p id="message"></p>
+    </fieldset>
+      </form> 
+
+
+<script>
+
+let checkEmail = () => {
+  
+    if (myForm.email.value != '')  {
+
+message.innerHTML = ''
+}
+
+  if (myForm.email.value === '')  {
+
+ message.innerHTML = 'please enter a valid email address'
+}
+    
+}
+
+let checkPassword = () => {
+  
+  if (myForm.password.value != '')  {
+
+
+message.innerHTML = ''
+
+}
+
+if (myForm.password.value === '')  {
+
+
+message.innerHTML = 'please enter a password'
+
+}
+
+}
+
+let submitMe = () => {
+
+if(myForm.password.value == myForm.passwordC.value && myForm.email.value == myForm.emailC.value ) {
+
+alert('Thank you for submitting')
+}
+
+
+if(myForm.password.value != myForm.passwordC.value) {
+
+  alert('passwords do not match')
+}
+  
+
+ if(myForm.email.value != myForm.emailC.value) {
+
+alert('email addresses does not match confirmation email')
+}
+   
+}
+
+
+
+</script>
+
+
+
+</body>
+</html>
